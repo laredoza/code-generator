@@ -35,4 +35,6 @@ Select a package to determine what the output will be. Each package consists of 
 6. Import selected table details: ./mssql_import.py
 # Generating the projects from the imported data
 Todo: Add instructions for generating the projects from the imported data
+```
 python3 ./generation/generate.py
+```
