@@ -4,10 +4,7 @@ It is designed to make the creation of new projects as simple as possible by bei
 
 Once the metadata is collected, the tool uses Jinja2 to generate the project files. Jinja2 is a template engine for Python. It is designed to be easy to use and flexible. It is also very powerful and can be used to generate any type of file. 
 
-Select a package to determine what the output will be. Each package consists of templates, and each template consists of jinja2 and data files. These will render a layer i.e) entities.
-
-**Note:** The tool is still in development and is not yet ready for production use.
-
+Select a package to determine what the output will be. Each package consists of template modules. Each template module consists of jinja2 and data files. These will render a layer i.e) entities.
 ### As an example, the Dotnet WebApi Domain Driven Design package:
 - [x] Context ( Entity Framework Core 7.0 )
 - [x] Entities
@@ -20,6 +17,8 @@ Select a package to determine what the output will be. Each package consists of 
 - [x] Dotnet WebApi Domain Driven Design 
 - [ ] Python FastApi Domain Driven Design  
 - [ ] Next.js Domain Driven Design   
+
+**Note:** The tool is still in development and is not yet ready for production use.
 # Importing Schemas
 ## Importing project data is possible from the following sources:
 - [x] MSSQL database / Sqlalchemy (ODBC)
