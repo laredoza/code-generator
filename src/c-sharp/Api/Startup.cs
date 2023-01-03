@@ -17,7 +17,7 @@ using Infrastructure.Infrastructure.Data.Repositories;
 using AutoMapper;
 using Infrastructure.Core.SharedKernel;
 using CodeGenerator.Infrastructure.Data.Repositories.FullContexts;
-
+using CodeGenerator.CodeGenerator.Api.V1.Services.FullContext;
 
 [assembly: ApiConventionType(typeof(DefaultApiConventions))]
 namespace CodeGenerator.Api
@@ -168,7 +168,7 @@ namespace CodeGenerator.Api
 
 		public void ConfigureApplicationServices(IServiceCollection services)
 		{
-			services.ConfigureApplicationServices();
+			// services.ConfigureApplicationServices();
 		}
 	}
 }

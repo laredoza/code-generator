@@ -1,5 +1,6 @@
 namespace CodeGenerator.Api.V1.Extensions
 {
+	using global::CodeGenerator.Infrastructure.Data.Context.SqlServer;
 	#region Usings
 
 	using Microsoft.EntityFrameworkCore;
@@ -17,14 +18,14 @@ namespace CodeGenerator.Api.V1.Extensions
 
 		public static void ConfigureDbContext(this IServiceCollection services, IConfiguration configuration)
 		{
-			// services.AddDbContext<FullContext>(options =>
-			// {
-			// 	options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"), sqlOptions =>
-		    	// 	{
-			//     		sqlOptions.MigrationsAssembly("Infrastructure.Data");
-			//     		sqlOptions.MigrationsHistoryTable("__EFMigrationsHistory", FullContext.DEFAULT_SCHEMA);
-		    	// 	});
-			// });
+			services.AddDbContext<FullContext>(options =>
+			{
+				options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"), sqlOptions =>
+		    		{
+			    		sqlOptions.MigrationsAssembly("Infrastructure.Data");
+			    		sqlOptions.MigrationsHistoryTable("__EFMigrationsHistory", FullContext.DEFAULT_SCHEMA);
+		    		});
+			});
 		}
 
 
