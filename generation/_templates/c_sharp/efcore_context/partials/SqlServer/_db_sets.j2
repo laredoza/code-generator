@@ -1,0 +1,5 @@
+		#region DbSets 
+		{% for model in context.models%}
+		public DbSet<{{model.table_name}}> {{model.table_name}} { get; set; }
+		{% endfor %}
+    		#endregion

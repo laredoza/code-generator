@@ -1,0 +1,7 @@
+		#region Properties
+    		protected override void OnModelCreating(ModelBuilder modelBuilder)
+    		{
+			modelBuilder.HasDefaultSchema({{context.context_name}}.DEFAULT_SCHEMA);
+			modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+		}
+		#endregion

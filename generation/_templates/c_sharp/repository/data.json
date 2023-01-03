@@ -1,0 +1,11 @@
+{
+	"additional_namespaces": [
+		"CodeGenerator.Infrastructure.Core.Entities",
+		"CodeGenerator.Infrastructure.Core.SharedKernel.FullContexts",
+		"CodeGenerator.Infrastructure.Data.Context.SqlServer",
+		"Infrastructure.Infrastructure.Data.Repositories"
+	],
+	"additional_namespaces_interfaces": [
+		"Infrastructure.Core.SharedKernel"
+	]
+}

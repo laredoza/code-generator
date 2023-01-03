@@ -1,0 +1,16 @@
+{% include "./partials/_header.j2" %}
+{% include "./partials/_namespace.j2" %}
+namespace {{namespace}}
+{
+	{% if entity.inherit_from_class == true -%}
+	public partial class {{table.table_name | convert_to_case(domain.namingConvention)}} : {{entity.inherit_from}}
+	{% else -%}
+	public partial class {{table.table_name | convert_to_case(domain.namingConvention)}}
+	{% endif -%}
+	{
+{% include "./partials/_constructor.j2" %}
+{% include "./partials/_properties.j2" %}
+{% include "./partials/_public_methods.j2" %}
+
+	}
+}

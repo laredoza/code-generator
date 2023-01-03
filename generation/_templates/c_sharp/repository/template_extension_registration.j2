@@ -1,0 +1,28 @@
+{% include "./partials/_header.j2" %}
+namespace {{namespace}}
+{
+	#region Usings
+
+	using Microsoft.Extensions.DependencyInjection;
+	using {{repository_namespace_interface}};
+	using {{repository_namespace}};
+
+	#endregion
+
+	/// <summary>
+	///     The RepositoryExtension.
+	/// </summary>
+	public static class RepositoryExtension
+	{
+		#region Public Methods And Operators
+
+		public static void ConfiguresRepositories(this IServiceCollection services)
+		{
+{%- for table in tables%}
+			services.AddScoped<I{{table.table_name | convert_to_case(domain.namingConvention)}}Repository, {{table.table_name | convert_to_case(domain.namingConvention)}}Repository>();
+{%- endfor %}
+		}
+
+		#endregion
+	}
+}

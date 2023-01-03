@@ -1,0 +1,8 @@
+{
+	"additional_namespaces": [
+		"Infrastructure.Core.SharedKernel",
+		"System.Collections.Generic"
+	],
+	"inherit_from_class": true,
+	"inherit_from": "Entity"
+}

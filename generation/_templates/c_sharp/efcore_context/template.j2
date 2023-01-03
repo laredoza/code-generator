@@ -1,0 +1,13 @@
+{% include "./partials/_header.j2" %}
+{% include "./partials/"+driver.prefix+"/_namespace.j2" %}
+namespace {{context_namespace}}
+{
+	public partial class {{context.context_name | convert_to_case(domain.namingConvention)}} : DbContext, IUnitOfWork
+	{
+{% include "./partials/"+driver.prefix+"/_constants.j2" %}
+{% include "./partials/"+driver.prefix+"/_fields.j2" %}
+{% include "./partials/"+driver.prefix+"/_constructor.j2" %}
+{% include "./partials/"+driver.prefix+"/_db_sets.j2" %}
+{% include "./partials/"+driver.prefix+"/_protected.j2" %}
+	}
+}

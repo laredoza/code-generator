@@ -1,0 +1,20 @@
+{% include "./partials/_header.j2" %}
+{% include "./partials/_namespace.j2" %}
+namespace {{namespace}}
+{
+	public class {{table.table_name | convert_to_case(domain.namingConvention)}}Repository : Repository<{{table.table_name | convert_to_case(domain.namingConvention)}}, {{context_name | convert_to_case(domain.namingConvention)}}>, I{{table.table_name | convert_to_case(domain.namingConvention)}}Repository
+	{
+	#region Constructors
+
+	public {{table.table_name | convert_to_case(domain.namingConvention)}}Repository({{context_name | convert_to_case(domain.namingConvention)}} context)
+		: base(context)
+	{
+	}
+
+	#endregion
+
+	#region Public Methods
+	
+	#endregion
+	}
+}

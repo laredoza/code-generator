@@ -1,0 +1,13 @@
+{
+	"id": "2BC1B0C4-1E41-9146-82CF-599181CE4413",
+	"create_db": true,
+	"include_column_order": true,
+	"lazy_load_enabled": true,
+	"logging_enabled": true,
+	"name": "Entity Framework Core",
+	"proxy_creation_enabled": true,
+	"use_alias": true,
+	"use_seperate_config_classes": true,
+	"enable_cache": false,
+	"cache": "00000000-0000-0000-0000-000000000001"
+}

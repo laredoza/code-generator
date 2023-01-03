@@ -1,0 +1,9 @@
+{
+	"additional_namespaces": [
+		"CodeGenerator.Infrastructure.Core.SharedKernel.FullContexts",
+		"Microsoft.Extensions.Logging",
+		"System"
+	],
+	"additional_namespaces_interfaces": [
+	]
+}

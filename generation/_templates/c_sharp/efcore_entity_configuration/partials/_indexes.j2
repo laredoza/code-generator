@@ -1,0 +1,15 @@
+			{%- for index in table.indexes if index.index_type != "PrimaryKey" %}
+			{%- if  index.columns | length == 1 %}
+			builder.HasIndex(t => t.{{index.columns[0] | convert_to_case(domain.namingConvention) }})
+			{%- elif index.columns | length > 1 %}
+			builder.HasIndex(t => new {
+			{%- for column in index.columns %}
+					t.{{column | convert_to_case(domain.namingConvention)}}{% if not loop.last %},{% endif %}
+			{%- endfor %}
+			        })
+			{%- endif %}
+			{%- if index.is_unique == true %}
+			       .IsUnique()
+			{%- endif %}
+			       .HasDatabaseName("{{index.name}}");
+			{%- endfor %}

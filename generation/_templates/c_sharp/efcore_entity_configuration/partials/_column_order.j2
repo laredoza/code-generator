@@ -1,0 +1,3 @@
+			{%- for column in table.columns %}
+			builder.Property(t => t.{{column.column_name | convert_to_case(domain.namingConvention)}}).HasColumnOrder({{column.column_order}});
+			{%- endfor %}

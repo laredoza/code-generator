@@ -1,0 +1,11 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
+using Infrastructure.Core.SharedKernel;
+{% for namespace in driver.namespaces -%}
+using {{namespace}};
+{% endfor -%}
+{% for namespace in entity.additional_namespaces -%}
+using {{namespace}};
+{% endfor -%}

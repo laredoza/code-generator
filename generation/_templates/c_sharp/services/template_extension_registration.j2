@@ -1,0 +1,25 @@
+{% include "./partials/_header.j2" %}
+namespace {{namespace}}
+{
+	#region Usings
+	using Microsoft.Extensions.DependencyInjection;
+	using global::CodeGenerator.CodeGenerator.Api.V1.Services.FullContext;
+	#endregion
+
+	/// <summary>
+	///     The ApplicationServicesExtension.
+	/// </summary>
+	public static class ApplicationServicesExtension
+	{
+		#region Public Methods And Operators
+
+		public static void ConfigureApplicationServices(this IServiceCollection services)
+		{
+			{%- for table in tables %}
+			services.AddScoped<I{{table.table_name | convert_to_case(domain.namingConvention)}}Service, {{table.table_name | convert_to_case(domain.namingConvention)}}Service>();
+			{%- endfor %}
+		}
+
+		#endregion
+	}
+}

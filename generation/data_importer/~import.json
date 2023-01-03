@@ -1,0 +1,1147 @@
+{
+	"connection_string": "DRIVER={ODBC Driver 18 for SQL Server};SERVER=localhost,1439;DATABASE=BankingDesign;UID=sa;PWD=Pass123#;encrypt=no;trust_server_certificate=yes",
+	"exclude_schemas": [
+		"db_accessadmin",
+		"db_backupoperator",
+		"db_datareader",
+		"db_datawriter",
+		"db_ddladmin",
+		"db_denydatareader",
+		"db_denydatawriter",
+		"db_owner",
+		"db_securityadmin",
+		"guest",
+		"INFORMATION_SCHEMA",
+		"sys"
+	],
+	"import_schemas": [
+		"dbo"
+	],
+	"import_tables": [
+		{
+			"schema": "dbo",
+			"name": "BankAccount"
+		},
+		{
+			"schema": "dbo",
+			"name": "Customer"
+		},
+		{
+			"schema": "dbo",
+			"name": "Country"
+		},
+		{
+			"schema": "dbo",
+			"name": "BankTransfers"
+		},
+		{
+			"schema": "dbo",
+			"name": "Book"
+		},
+		{
+			"schema": "dbo",
+			"name": "Product"
+		},
+		{
+			"schema": "dbo",
+			"name": "Order"
+		},
+		{
+			"schema": "dbo",
+			"name": "OrderDetails"
+		},
+		{
+			"schema": "dbo",
+			"name": "Software"
+		}
+	],
+	"table_details": [
+		{
+			"description": "BankAccount",
+			"schema_name": "dbo",
+			"table_name": "BankAccount",
+			"alias": "BankAccount",
+			"enabled_for_code_generation": true,
+			"columns": [
+				{
+					"column_name": "BankAccountId",
+					"alias": "BankAccountId",
+					"column_order": 1,
+					"data_type": "int32",
+					"is_primary_key": true,
+					"is_required": true,
+					"length": 0,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "BankAccountNumber",
+					"alias": "BankAccountNumber",
+					"column_order": 2,
+					"data_type": "string",
+					"is_primary_key": false,
+					"is_required": true,
+					"length": 10,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "Balance",
+					"alias": "Balance",
+					"column_order": 3,
+					"data_type": "decimal",
+					"is_primary_key": false,
+					"is_required": true,
+					"length": 0,
+					"precision": 19,
+					"scale": 4,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "CustomerId",
+					"alias": "CustomerId",
+					"column_order": 4,
+					"data_type": "int32",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 0,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "Locked",
+					"alias": "Locked",
+					"column_order": 5,
+					"data_type": "bool",
+					"is_primary_key": false,
+					"is_required": true,
+					"length": 0,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				}
+			],
+			"indexes": [
+				{
+					"index_type": "NonClustered",
+					"is_unique": false,
+					"name": "IX_CustomerId1",
+					"columns": [
+						"CustomerId"
+					]
+				},
+				{
+					"index_type": "PrimaryKey",
+					"is_unique": true,
+					"name": "UQ__BankAcco__4FC8E4A0C45281C8",
+					"columns": [
+						"BankAccountId"
+					]
+				}
+			],
+			"relationships": [
+				{
+					"column_name": "CustomerId",
+					"relationship": "ForeignKey",
+					"referenced_column_name": "CustomerId",
+					"render": true,
+					"schema_name": "dbo",
+					"referenced_table_name": "Customer",
+					"multiplicity": "Many",
+					"referenced_multiplicity": "ZeroToOne",
+					"user_relationship": false,
+					"relationship_name": "FK_BankAccount_Customer_CustomerId"
+				},
+				{
+					"column_name": "BankAccountId",
+					"relationship": "ForeignKeyChild",
+					"referenced_column_name": "ToBankAccountId",
+					"render": true,
+					"schema_name": "dbo",
+					"referenced_table_name": "BankTransfers",
+					"multiplicity": "One",
+					"referenced_multiplicity": "Many",
+					"user_relationship": false,
+					"relationship_name": "FK_BankTransfers_BankAccount_ToBankAccountId_child"
+				}
+			]
+		},
+		{
+			"description": "Customer",
+			"schema_name": "dbo",
+			"table_name": "Customer",
+			"alias": "Customer",
+			"enabled_for_code_generation": true,
+			"columns": [
+				{
+					"column_name": "CustomerId",
+					"alias": "CustomerId",
+					"column_order": 1,
+					"data_type": "int32",
+					"is_primary_key": true,
+					"is_required": true,
+					"length": 0,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "CustomerCode",
+					"alias": "CustomerCode",
+					"column_order": 2,
+					"data_type": "string",
+					"is_primary_key": false,
+					"is_required": true,
+					"length": 5,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "CompanyName",
+					"alias": "CompanyName",
+					"column_order": 3,
+					"data_type": "string",
+					"is_primary_key": false,
+					"is_required": true,
+					"length": 50,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "ContactName",
+					"alias": "ContactName",
+					"column_order": 4,
+					"data_type": "string",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 50,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "ContactTitle",
+					"alias": "ContactTitle",
+					"column_order": 5,
+					"data_type": "string",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 50,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "Address",
+					"alias": "Address",
+					"column_order": 6,
+					"data_type": "string",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 50,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "City",
+					"alias": "City",
+					"column_order": 7,
+					"data_type": "string",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 20,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "PostalCode",
+					"alias": "PostalCode",
+					"column_order": 8,
+					"data_type": "string",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 10,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "Telephone",
+					"alias": "Telephone",
+					"column_order": 9,
+					"data_type": "string",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 50,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "Fax",
+					"alias": "Fax",
+					"column_order": 10,
+					"data_type": "string",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 50,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "CountryId",
+					"alias": "CountryId",
+					"column_order": 11,
+					"data_type": "int32",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 0,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "Photo",
+					"alias": "Photo",
+					"column_order": 12,
+					"data_type": "string",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 255,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "IsEnabled",
+					"alias": "IsEnabled",
+					"column_order": 13,
+					"data_type": "bool",
+					"is_primary_key": false,
+					"is_required": true,
+					"length": 0,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				}
+			],
+			"indexes": [
+				{
+					"index_type": "PrimaryKey",
+					"is_unique": true,
+					"name": "UQ__Customer__A4AE64D98B60CE6B",
+					"columns": [
+						"CustomerId"
+					]
+				},
+				{
+					"index_type": "NonClustered",
+					"is_unique": false,
+					"name": "IX_CountryId",
+					"columns": [
+						"CountryId"
+					]
+				}
+			],
+			"relationships": [
+				{
+					"column_name": "CountryId",
+					"relationship": "ForeignKey",
+					"referenced_column_name": "CountryId",
+					"render": true,
+					"schema_name": "dbo",
+					"referenced_table_name": "Country",
+					"multiplicity": "Many",
+					"referenced_multiplicity": "ZeroToOne",
+					"user_relationship": false,
+					"relationship_name": "FK_Customer_Country_CountryId"
+				},
+				{
+					"column_name": "CustomerId",
+					"relationship": "ForeignKeyChild",
+					"referenced_column_name": "CustomerId",
+					"render": true,
+					"schema_name": "dbo",
+					"referenced_table_name": "BankAccount",
+					"multiplicity": "ZeroToOne",
+					"referenced_multiplicity": "Many",
+					"user_relationship": false,
+					"relationship_name": "FK_BankAccount_Customer_CustomerId_child"
+				},
+				{
+					"column_name": "CustomerId",
+					"relationship": "ForeignKeyChild",
+					"referenced_column_name": "CustomerId",
+					"render": true,
+					"schema_name": "dbo",
+					"referenced_table_name": "Order",
+					"multiplicity": "ZeroToOne",
+					"referenced_multiplicity": "Many",
+					"user_relationship": false,
+					"relationship_name": "FK_Order_Customer_CustomerId_child"
+				}
+			]
+		},
+		{
+			"description": "Country",
+			"schema_name": "dbo",
+			"table_name": "Country",
+			"alias": "Country",
+			"enabled_for_code_generation": true,
+			"columns": [
+				{
+					"column_name": "CountryId",
+					"alias": "CountryId",
+					"column_order": 1,
+					"data_type": "int32",
+					"is_primary_key": true,
+					"is_required": true,
+					"length": 0,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "CountryName",
+					"alias": "CountryName",
+					"column_order": 2,
+					"data_type": "string",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 100,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				}
+			],
+			"indexes": [
+				{
+					"index_type": "PrimaryKey",
+					"is_unique": true,
+					"name": "UQ__Country__10D1609E8CC26505",
+					"columns": [
+						"CountryId"
+					]
+				}
+			],
+			"relationships": [
+				{
+					"column_name": "CountryId",
+					"relationship": "ForeignKeyChild",
+					"referenced_column_name": "CountryId",
+					"render": true,
+					"schema_name": "dbo",
+					"referenced_table_name": "Customer",
+					"multiplicity": "ZeroToOne",
+					"referenced_multiplicity": "Many",
+					"user_relationship": false,
+					"relationship_name": "FK_Customer_Country_CountryId_child"
+				}
+			]
+		},
+		{
+			"description": "BankTransfers",
+			"schema_name": "dbo",
+			"table_name": "BankTransfers",
+			"alias": "BankTransfers",
+			"enabled_for_code_generation": true,
+			"columns": [
+				{
+					"column_name": "BankTransferId",
+					"alias": "BankTransferId",
+					"column_order": 1,
+					"data_type": "int32",
+					"is_primary_key": true,
+					"is_required": true,
+					"length": 0,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "FromBankAccountId",
+					"alias": "FromBankAccountId",
+					"column_order": 2,
+					"data_type": "int32",
+					"is_primary_key": false,
+					"is_required": true,
+					"length": 0,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "ToBankAccountId",
+					"alias": "ToBankAccountId",
+					"column_order": 3,
+					"data_type": "int32",
+					"is_primary_key": false,
+					"is_required": true,
+					"length": 0,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "Amount",
+					"alias": "Amount",
+					"column_order": 4,
+					"data_type": "decimal",
+					"is_primary_key": false,
+					"is_required": true,
+					"length": 0,
+					"precision": 18,
+					"scale": 2,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "TransferDate",
+					"alias": "TransferDate",
+					"column_order": 5,
+					"data_type": "DateTime",
+					"is_primary_key": false,
+					"is_required": true,
+					"length": 0,
+					"precision": null,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				}
+			],
+			"indexes": [
+				{
+					"index_type": "PrimaryKey",
+					"is_unique": true,
+					"name": "UQ__BankTran__2E82727AB11DB584",
+					"columns": [
+						"BankTransferId"
+					]
+				},
+				{
+					"index_type": "NonClustered",
+					"is_unique": false,
+					"name": "IX_ToBankAccountId",
+					"columns": [
+						"ToBankAccountId"
+					]
+				}
+			],
+			"relationships": [
+				{
+					"column_name": "ToBankAccountId",
+					"relationship": "ForeignKey",
+					"referenced_column_name": "BankAccountId",
+					"render": true,
+					"schema_name": "dbo",
+					"referenced_table_name": "BankAccount",
+					"multiplicity": "Many",
+					"referenced_multiplicity": "One",
+					"user_relationship": false,
+					"relationship_name": "FK_BankTransfers_BankAccount_ToBankAccountId"
+				}
+			]
+		},
+		{
+			"description": "Book",
+			"schema_name": "dbo",
+			"table_name": "Book",
+			"alias": "Book",
+			"enabled_for_code_generation": true,
+			"columns": [
+				{
+					"column_name": "ProductId",
+					"alias": "ProductId",
+					"column_order": 1,
+					"data_type": "int32",
+					"is_primary_key": true,
+					"is_required": true,
+					"length": 0,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "Publisher",
+					"alias": "Publisher",
+					"column_order": 2,
+					"data_type": "string",
+					"is_primary_key": false,
+					"is_required": true,
+					"length": 200,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				}
+			],
+			"indexes": [
+				{
+					"index_type": "PrimaryKey",
+					"is_unique": false,
+					"name": "IX_ProductId1",
+					"columns": [
+						"ProductId"
+					]
+				}
+			],
+			"relationships": [
+				{
+					"column_name": "ProductId",
+					"relationship": "ForeignKey",
+					"referenced_column_name": "ProductId",
+					"render": true,
+					"schema_name": "dbo",
+					"referenced_table_name": "Product",
+					"multiplicity": "ZeroToOne",
+					"referenced_multiplicity": "One",
+					"user_relationship": false,
+					"relationship_name": "FK_Book_Product_ProductId"
+				}
+			]
+		},
+		{
+			"description": "Product",
+			"schema_name": "dbo",
+			"table_name": "Product",
+			"alias": "Product",
+			"enabled_for_code_generation": true,
+			"columns": [
+				{
+					"column_name": "ProductId",
+					"alias": "ProductId",
+					"column_order": 1,
+					"data_type": "int32",
+					"is_primary_key": true,
+					"is_required": true,
+					"length": 0,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "ProductDescription",
+					"alias": "ProductDescription",
+					"column_order": 2,
+					"data_type": "string",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 100,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "UnitPrice",
+					"alias": "UnitPrice",
+					"column_order": 3,
+					"data_type": "decimal",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 0,
+					"precision": 19,
+					"scale": 4,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "AmountInStock",
+					"alias": "AmountInStock",
+					"column_order": 4,
+					"data_type": "int16",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 0,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				}
+			],
+			"indexes": [
+				{
+					"index_type": "PrimaryKey",
+					"is_unique": true,
+					"name": "UQ__Product__B40CC6CC5F2A0195",
+					"columns": [
+						"ProductId"
+					]
+				}
+			],
+			"relationships": [
+				{
+					"column_name": "ProductId",
+					"relationship": "ForeignKeyChild",
+					"referenced_column_name": "ProductId",
+					"render": true,
+					"schema_name": "dbo",
+					"referenced_table_name": "Book",
+					"multiplicity": "One",
+					"referenced_multiplicity": "ZeroToOne",
+					"user_relationship": false,
+					"relationship_name": "FK_Book_Product_ProductId_child"
+				},
+				{
+					"column_name": "ProductId",
+					"relationship": "ForeignKeyChild",
+					"referenced_column_name": "ProductId",
+					"render": true,
+					"schema_name": "dbo",
+					"referenced_table_name": "OrderDetails",
+					"multiplicity": "One",
+					"referenced_multiplicity": "Many",
+					"user_relationship": false,
+					"relationship_name": "FK_OrderDetails_Product_ProductId_child"
+				},
+				{
+					"column_name": "ProductId",
+					"relationship": "ForeignKeyChild",
+					"referenced_column_name": "ProductId",
+					"render": true,
+					"schema_name": "dbo",
+					"referenced_table_name": "Software",
+					"multiplicity": "One",
+					"referenced_multiplicity": "ZeroToOne",
+					"user_relationship": false,
+					"relationship_name": "FK_Software_Product_ProductId_child"
+				}
+			]
+		},
+		{
+			"description": "Order",
+			"schema_name": "dbo",
+			"table_name": "Order",
+			"alias": "Order",
+			"enabled_for_code_generation": true,
+			"columns": [
+				{
+					"column_name": "OrderId",
+					"alias": "OrderId",
+					"column_order": 1,
+					"data_type": "int32",
+					"is_primary_key": true,
+					"is_required": true,
+					"length": 0,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "CustomerId",
+					"alias": "CustomerId",
+					"column_order": 2,
+					"data_type": "int32",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 0,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "OrderDate",
+					"alias": "OrderDate",
+					"column_order": 3,
+					"data_type": "DateTime",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 0,
+					"precision": null,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "DeliveryDate",
+					"alias": "DeliveryDate",
+					"column_order": 4,
+					"data_type": "DateTime",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 0,
+					"precision": null,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "ShippingName",
+					"alias": "ShippingName",
+					"column_order": 5,
+					"data_type": "string",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 50,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "ShippingAddress",
+					"alias": "ShippingAddress",
+					"column_order": 6,
+					"data_type": "string",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 50,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "ShippingCity",
+					"alias": "ShippingCity",
+					"column_order": 7,
+					"data_type": "string",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 50,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "ShippingZip",
+					"alias": "ShippingZip",
+					"column_order": 8,
+					"data_type": "string",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 50,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				}
+			],
+			"indexes": [
+				{
+					"index_type": "NonClustered",
+					"is_unique": false,
+					"name": "IX_CustomerId",
+					"columns": [
+						"CustomerId"
+					]
+				},
+				{
+					"index_type": "PrimaryKey",
+					"is_unique": true,
+					"name": "UQ__Order__C3905BCE3C614174",
+					"columns": [
+						"OrderId"
+					]
+				}
+			],
+			"relationships": [
+				{
+					"column_name": "CustomerId",
+					"relationship": "ForeignKey",
+					"referenced_column_name": "CustomerId",
+					"render": true,
+					"schema_name": "dbo",
+					"referenced_table_name": "Customer",
+					"multiplicity": "Many",
+					"referenced_multiplicity": "ZeroToOne",
+					"user_relationship": false,
+					"relationship_name": "FK_Order_Customer_CustomerId"
+				},
+				{
+					"column_name": "OrderId",
+					"relationship": "ForeignKeyChild",
+					"referenced_column_name": "OrderId",
+					"render": true,
+					"schema_name": "dbo",
+					"referenced_table_name": "OrderDetails",
+					"multiplicity": "One",
+					"referenced_multiplicity": "Many",
+					"user_relationship": false,
+					"relationship_name": "FK_OrderDetails_Order_OrderId_child"
+				}
+			]
+		},
+		{
+			"description": "OrderDetails",
+			"schema_name": "dbo",
+			"table_name": "OrderDetails",
+			"alias": "OrderDetails",
+			"enabled_for_code_generation": true,
+			"columns": [
+				{
+					"column_name": "OrderDetailsId",
+					"alias": "OrderDetailsId",
+					"column_order": 1,
+					"data_type": "int32",
+					"is_primary_key": true,
+					"is_required": true,
+					"length": 0,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "OrderId",
+					"alias": "OrderId",
+					"column_order": 2,
+					"data_type": "int32",
+					"is_primary_key": false,
+					"is_required": true,
+					"length": 0,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "ProductId",
+					"alias": "ProductId",
+					"column_order": 3,
+					"data_type": "int32",
+					"is_primary_key": false,
+					"is_required": true,
+					"length": 0,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "UnitPrice",
+					"alias": "UnitPrice",
+					"column_order": 4,
+					"data_type": "decimal",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 0,
+					"precision": 19,
+					"scale": 4,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "Amount",
+					"alias": "Amount",
+					"column_order": 5,
+					"data_type": "int16",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 0,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "Discount",
+					"alias": "Discount",
+					"column_order": 6,
+					"data_type": "real",
+					"is_primary_key": false,
+					"is_required": false,
+					"length": 0,
+					"precision": 24,
+					"scale": null,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				}
+			],
+			"indexes": [
+				{
+					"index_type": "PrimaryKey",
+					"is_unique": true,
+					"name": "UQ__OrderDet__9DD74DBC8AA17DA0",
+					"columns": [
+						"OrderDetailsId"
+					]
+				},
+				{
+					"index_type": "NonClustered",
+					"is_unique": false,
+					"name": "IX_ProductId2",
+					"columns": [
+						"ProductId"
+					]
+				},
+				{
+					"index_type": "NonClustered",
+					"is_unique": false,
+					"name": "IX_OrderId1",
+					"columns": [
+						"OrderId"
+					]
+				}
+			],
+			"relationships": [
+				{
+					"column_name": "OrderId",
+					"relationship": "ForeignKey",
+					"referenced_column_name": "OrderId",
+					"render": true,
+					"schema_name": "dbo",
+					"referenced_table_name": "Order",
+					"multiplicity": "Many",
+					"referenced_multiplicity": "One",
+					"user_relationship": false,
+					"relationship_name": "FK_OrderDetails_Order_OrderId"
+				},
+				{
+					"column_name": "ProductId",
+					"relationship": "ForeignKey",
+					"referenced_column_name": "ProductId",
+					"render": true,
+					"schema_name": "dbo",
+					"referenced_table_name": "Product",
+					"multiplicity": "Many",
+					"referenced_multiplicity": "One",
+					"user_relationship": false,
+					"relationship_name": "FK_OrderDetails_Product_ProductId"
+				}
+			]
+		},
+		{
+			"description": "Software",
+			"schema_name": "dbo",
+			"table_name": "Software",
+			"alias": "Software",
+			"enabled_for_code_generation": true,
+			"columns": [
+				{
+					"column_name": "ProductId",
+					"alias": "ProductId",
+					"column_order": 1,
+					"data_type": "int32",
+					"is_primary_key": true,
+					"is_required": true,
+					"length": 0,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				},
+				{
+					"column_name": "LicenseCode",
+					"alias": "LicenseCode",
+					"column_order": 2,
+					"data_type": "string",
+					"is_primary_key": false,
+					"is_required": true,
+					"length": 200,
+					"precision": 0,
+					"scale": 0,
+					"is_identity": false,
+					"identity_seed": 0,
+					"identity_increment": 0
+				}
+			],
+			"indexes": [
+				{
+					"index_type": "PrimaryKey",
+					"is_unique": false,
+					"name": "IX_ProductId3",
+					"columns": [
+						"ProductId"
+					]
+				}
+			],
+			"relationships": [
+				{
+					"column_name": "ProductId",
+					"relationship": "ForeignKey",
+					"referenced_column_name": "ProductId",
+					"render": true,
+					"schema_name": "dbo",
+					"referenced_table_name": "Product",
+					"multiplicity": "ZeroToOne",
+					"referenced_multiplicity": "One",
+					"user_relationship": false,
+					"relationship_name": "FK_Software_Product_ProductId"
+				}
+			]
+		}
+	]
+}

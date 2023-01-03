@@ -1,0 +1,22 @@
+{% include "./partials/_header.j2" %}
+{% include "./partials/_namespace.j2" %}
+
+namespace {{namespace}}
+{
+	public class {{table.table_name | convert_to_case(domain.namingConvention)}}Service : I{{table.table_name | convert_to_case(domain.namingConvention)}}Service
+	{
+		readonly I{{table.table_name | convert_to_case(domain.namingConvention)}}Repository _repository;
+		readonly ILogger<{{table.table_name | convert_to_case(domain.namingConvention)}}Service> _logger;
+
+		public {{table.table_name | convert_to_case(domain.namingConvention)}}Service(
+			I{{table.table_name | convert_to_case(domain.namingConvention)}}Repository repository,
+			ILogger<{{table.table_name | convert_to_case(domain.namingConvention)}}Service> logger
+		)
+		{
+			_repository = repository ?? throw new ArgumentNullException(nameof(repository));
+			_logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    		}
+	}
+}
+
+

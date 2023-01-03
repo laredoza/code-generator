@@ -1,0 +1,29 @@
+{
+	"namespace": "Context",
+	"outputFolder": "Context",
+	"isDefault": true,
+	"additionalNamespaces": [
+		"RepositoryEFDotnet.Core.Base"
+	],
+	"contexts": [
+		{
+			"contextName": "FullContext",
+			"models": {
+				"tables": [
+					{
+						"description": "",
+						"schemaName": "dbo",
+						"tableName": "Patient",
+						"enabledForCodeGeneration": true
+					},
+					{
+						"description": "",
+						"schemaName": "dbo",
+						"tableName": "Visit",
+						"enabledForCodeGeneration": true
+					}
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<LangVersion>10.0</LangVersion>
+		<RootNamespace>CodeGenerator.Api</RootNamespace>
+		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+		<noWarn>1591</noWarn>
+		<IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="6.0.2" />
+		<PackageReference Include="AutoMapper" Version="12.0.0" />
+		<PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.21.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.HealthChecks" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="7.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.1">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="7.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="7.0.1" />
+		<PackageReference Include="NLog" Version="5.1.1" />
+		<PackageReference Include="NLog.Extensions.Logging" Version="5.2.1" />
+		<PackageReference Include="NLog.Targets.ElasticSearch" Version="7.7.0" />
+		<PackageReference Include="NLog.Web.AspNetCore" Version="5.2.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
+		<PackageReference Include="System.ComponentModel.Primitives" Version="4.3.0" />
+		<Content Update="nlog.config" CopyToOutputDirectory="PreserveNewest" />
+		<PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+		<PackageReference Include="System.Runtime" Version="4.3.1" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Infrastructure.Core\Infrastructure.Core.csproj" />
+		<ProjectReference Include="..\Infrastructure.Data\Infrastructure.Data.csproj" />
+	</ItemGroup>
+</Project>

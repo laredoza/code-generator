@@ -1,0 +1,6 @@
+{
+	"additional_namespaces": [
+		"CodeGenerator.Infrastructure.Core.Entities"
+	],
+	"context_template_id": "00000000-0000-0000-0000-000000000001"
+}

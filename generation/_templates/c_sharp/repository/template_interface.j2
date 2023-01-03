@@ -1,0 +1,8 @@
+{% include "./partials/_header.j2" %}
+{% include "./partials/_namespace_interface.j2" %}
+namespace {{namespace}}
+{
+    public interface I{{table.table_name | convert_to_case(domain.namingConvention)}}Repository : IRepository
+    {
+    }
+}

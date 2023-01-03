@@ -1,0 +1,23 @@
+{
+	"id": "8A1103C5-8557-4449-825F-299CF9749AD2",
+	"name": "Entity Framework Core - MySql (Default)",
+	"create_db": true,
+	"logging_enabled": true,
+	"include_column_order": true,
+	"configuration_class": "",
+	"force_schema_to_uppercase": false,
+	"lazy_load_enabled": true,
+	"name_spaces": [
+		"Microsoft.EntityFrameworkCore",
+		"Microsoft.EntityFrameworkCore.Metadata.Builders",
+		"System.Configuration"
+	],
+	"proxy_creation_enabled": true,
+	"parent_folder": "EF Core",
+	"prefix": "MySql",
+	"use_alias": true,
+	"use_schema": false,
+	"enable_cache": false,
+	"use_seperate_config_classes": true,
+	"cache": "00000000-0000-0000-0000-000000000001"
+}

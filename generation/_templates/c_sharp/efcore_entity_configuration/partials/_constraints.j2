@@ -1,0 +1,16 @@
+			{%- for column in table.columns %}
+			{%- if column.length %}
+			builder.Property(t => t.{{column.column_name | convert_to_case(domain.namingConvention)}}).HasMaxLength({{column.length}});
+			{%- endif %}
+			{%- if column.is_required %}
+			builder.Property(t => t.{{column.column_name | convert_to_case(domain.namingConvention)}}).IsRequired();
+			{%- else %}
+			builder.Property(t => t.{{column.column_name | convert_to_case(domain.namingConvention)}}).IsRequired(false);
+			{%- endif %}
+			{%- if column.precision is not none and column.scale is not none and column.precision > 0 and column.scale > 0 -%}
+			builder.Property(t => t.{{column.column_name | convert_to_case(domain.namingConvention)}}).HasPrecision({{column.precision}},{{column.scale}});
+			{%- elif column.precision is not none and column.scale is not none and column.precision > 0 and column.scale == 0 %}
+			builder.Property(t => t.{{column.column_name | convert_to_case(domain.namingConvention)}}).HasPrecision({{column.precision}});
+			{%- endif %}
+			{%- endfor %}
+

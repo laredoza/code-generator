@@ -1,0 +1,8 @@
+		#region Constructors
+		public {{context.context_name | convert_to_case(domain.namingConvention)}}(IHttpContextAccessor httpContextAccessor, DbContextOptions<{{context.context_name}}> options) :
+			base(options)
+		{
+			_httpContextAccessor = httpContextAccessor;
+			_user = _httpContextAccessor.HttpContext?.User?.GetEmail() ?? _httpContextAccessor.HttpContext?.User?.GetClient() ?? "System";
+		}
+		#endregion

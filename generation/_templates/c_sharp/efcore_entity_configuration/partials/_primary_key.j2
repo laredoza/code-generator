@@ -1,0 +1,8 @@
+			{%- if primary_key_columns | length == 1 %}
+			builder.HasKey(t => t.{{primary_key_columns[0].column_name | convert_to_case(domain.namingConvention)}});
+			{%- endif -%}
+			{%- if primary_key_columns | length > 1 %}
+			{%- for primary_key_column in primary_key_columns -%}
+			builder.HasKey(t => t.{{primary_key_column.column_name | convert_to_case(domain.namingConvention)}});
+			{%- endfor %}
+			{%- endif %}

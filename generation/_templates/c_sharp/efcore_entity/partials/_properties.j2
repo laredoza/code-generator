@@ -1,0 +1,15 @@
+		#region Properties
+		{% for column in table.columns -%}
+		public {{column | map_to_output_type}} {{column.column_name | convert_to_case(domain.namingConvention)}} { get; set; }
+		{% endfor -%}		
+		{% for relationship in foreign_relationships -%}
+                public {{relationship.referenced_table_name | convert_to_case(domain.namingConvention)}} {{relationship.referenced_table_name | convert_to_case(domain.namingConvention)}} { get; set; }
+                {% endfor -%}   
+		{% for relationship in foreign_relationships_children-%}
+		{% if relationship.referenced_multiplicity == "Many" %}
+                public List<{{relationship.referenced_table_name | convert_to_case(domain.namingConvention)}}> {{relationship.referenced_table_name | convert_to_case(domain.namingConvention)}}s { get; set; }
+		{% else %}
+                public {{relationship.referenced_table_name | convert_to_case(domain.namingConvention)}} {{relationship.referenced_table_name | convert_to_case(domain.namingConvention)}} { get; set; }
+		{% endif -%}
+                {% endfor -%}   
+    		#endregion
