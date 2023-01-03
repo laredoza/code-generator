@@ -16,7 +16,7 @@
 			      .OnDelete(DeleteBehavior.Restrict);
 			{%- elif relationship.multiplicity == "One"%}
 			      .WithOne(t => t.{{parent_table_name}}) // 2
-			      .HasForeignKey("{{relationship.relationship_name}}")
+			      // .HasForeignKey("{{relationship.relationship_name}}")
 			      .OnDelete(DeleteBehavior.Restrict);
 			{%- else %}
 			{%- if relationship.referenced_multiplicity == "Many"%}

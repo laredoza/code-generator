@@ -38,15 +38,15 @@ namespace CodeGenerator.Infrastructure.Data.EntityConfigurations.FullContext
 
 			builder.HasOne<Book>(s => s.Book) // 1
 			      .WithOne(t => t.Product) // 2
-			      .HasForeignKey("FK_Book_Product_ProductId_child")
+			      // .HasForeignKey("FK_Book_Product_ProductId_child")
 			      .OnDelete(DeleteBehavior.Restrict);
 			builder.HasMany<OrderDetails>(s => s.OrderDetailss)
 			      .WithOne(t => t.Product) // 2
-			      .HasForeignKey("FK_OrderDetails_Product_ProductId_child")
+			      // .HasForeignKey("FK_OrderDetails_Product_ProductId_child")
 			      .OnDelete(DeleteBehavior.Restrict);
 			builder.HasOne<Software>(s => s.Software) // 1
 			      .WithOne(t => t.Product) // 2
-			      .HasForeignKey("FK_Software_Product_ProductId_child")
+			      // .HasForeignKey("FK_Software_Product_ProductId_child")
 			      .OnDelete(DeleteBehavior.Restrict);
 		}
 	}

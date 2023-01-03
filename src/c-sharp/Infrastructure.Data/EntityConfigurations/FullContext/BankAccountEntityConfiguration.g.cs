@@ -46,7 +46,7 @@ namespace CodeGenerator.Infrastructure.Data.EntityConfigurations.FullContext
 			      .OnDelete(DeleteBehavior.Restrict);
 			builder.HasMany<BankTransfers>(s => s.BankTransferss)
 			      .WithOne(t => t.BankAccount) // 2
-			      .HasForeignKey("FK_BankTransfers_BankAccount_ToBankAccountId_child")
+			      // .HasForeignKey("FK_BankTransfers_BankAccount_ToBankAccountId_child")
 			      .OnDelete(DeleteBehavior.Restrict);
 		}
 	}

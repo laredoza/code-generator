@@ -55,7 +55,7 @@ namespace CodeGenerator.Infrastructure.Data.EntityConfigurations.FullContext
 			      .OnDelete(DeleteBehavior.Restrict);
 			builder.HasMany<OrderDetails>(s => s.OrderDetailss)
 			      .WithOne(t => t.Order) // 2
-			      .HasForeignKey("FK_OrderDetails_Order_OrderId_child")
+			      // .HasForeignKey("FK_OrderDetails_Order_OrderId_child")
 			      .OnDelete(DeleteBehavior.Restrict);
 		}
 	}
