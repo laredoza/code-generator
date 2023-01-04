@@ -5,7 +5,7 @@ namespace Infrastructure.Core.SharedKernel
 {
     public class Entity
     {
-        public Guid Id { get; set; }
+        public long Id { get; set; }
 
         public bool Deleted { get; set; } = false;
 
