@@ -154,6 +154,7 @@ dmypy.json
 cython_debug/
 
 generation/data_importer/import.json
+generation/model/base.json
 
 #dotnet
 .vscode/*
