@@ -12,9 +12,9 @@ class MSSqlAlchemyImporter(BaseSqlAlchemyImporter):
         if type(data_type) is db.types.NVARCHAR or type(data_type) is db.types.VARCHAR:
             return "string"
         elif type(data_type) is db.types.INTEGER:
-            return "int32"
+            return "Int32"
         elif type(data_type) is db.types.SMALLINT:
-            return "int16"
+            return "Int16"
         elif type(data_type) is db.types.DECIMAL or type(data_type) is db.sql.sqltypes.NUMERIC:
             return "decimal"
         elif type(data_type) is db.dialects.mssql.base.DATETIME2 or type(data_type) is db.sql.sqltypes.DATETIME:
@@ -30,9 +30,9 @@ class MSSqlAlchemyImporter(BaseSqlAlchemyImporter):
         elif type(data_type) is db.sql.sqltypes.BIGINT:
             return "long"
         elif type(data_type) is db.dialects.mssql.base.UNIQUEIDENTIFIER:
-            return "guid"
+            return "Guid"
         elif type(data_type) is db.sql.sqltypes.FLOAT:
-            return "guid"
+            return "float"
         elif type(data_type) is db.dialects.mssql.base.TIME:
             return "TimeSpan"
         elif type(data_type) is db.dialects.mssql.base.MONEY:

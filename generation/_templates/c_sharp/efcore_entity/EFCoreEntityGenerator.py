@@ -12,19 +12,19 @@ def map_to_output_type(column):
 
         # https://stackoverflow.com/questions/44193823/get-existing-table-using-sqlalchemy-metadata
         # db_type = column.RemapDataType if column.RemapDataType else column.DomainDataType
-        db_type = column.data_type
+        result = column.data_type
         # db_type = 1
 
         # result = ""
 
         #todo: map types
-        if db_type == "String":
+        if result == "String":
             result = "string" 
-        else:
-            result = "string"
         
         if column.is_required == False and result != "string":
             result = f"{result}?"
+        print("Column Type", result)
+        print("Column Type", column.data_type)
         return result
 class EFCoreEntityGenerator(BaseGenerator.BaseGenerator):
     def __init__(self, collection, drivers, namingConvention, domain, project_data, template, template_dir):

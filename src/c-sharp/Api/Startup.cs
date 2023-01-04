@@ -163,7 +163,7 @@ namespace CodeGenerator.Api
 		static void ConfigureIntegrations(IServiceCollection services)
 		{
 			services.AddHttpContextAccessor();
-			services.ConfiguresRepositories();
+			// services.ConfiguresRepositories();
 		}
 
 		public void ConfigureApplicationServices(IServiceCollection services)
