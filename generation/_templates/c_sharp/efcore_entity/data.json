@@ -1,5 +1,6 @@
 {
 	"additional_namespaces": [
+		"System",
 		"Infrastructure.Core.SharedKernel",
 		"System.Collections.Generic"
 	],

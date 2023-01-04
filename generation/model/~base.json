@@ -1,0 +1,131 @@
+{
+	"base_namespace": "CodeGenerator",
+	"headerText": "This is a heading",
+	"basePath": "../src/c-sharp",
+	"version": 1.0,
+	"license": "MIT",
+	"company": "My Company",
+	"domains": [
+		{
+			"id": "00000000-0000-0000-0000-000000000001",
+			"name": "Web Api",
+			"collectionOptionId": "00000000-0000-0000-0000-000000000001",
+			"driverId": [
+				"2BC1B0C4-1E41-9146-82CF-599181CE4413"
+			],
+			"sourceTypeId": "00000000-0000-0000-0000-000000000000",
+			"namingConvention": "1BC1B0C4-1E41-9146-82CF-599181CE4410",
+			"packages": [
+				{
+					"id": "00000000-0000-0000-0000-000000000001",
+					"name": "Default Context Template",
+					"children": [],
+					"enabled": true,
+					"parentId": "00000000-0000-0000-0000-000000000000",
+					"selected": false,
+					"templates": [
+						{
+							"id": "00000000-0000-0000-0000-000000000001",
+							"name": "Context Template",
+							"base_path": "Infrastructure.Data/Context",
+							"enabled": true,
+							"namespace": "Infrastructure.Data.Context",
+							"default_schema": "dbo"
+						},
+						{
+							"id": "00000000-0000-0000-0000-000000000002",
+							"name": "Entity Template",
+							"base_path": "Infrastructure.Core/Entities",
+							"enabled": true,
+							"namespace": "Infrastructure.Core.Entities"
+						},
+						{
+							"id": "00000000-0000-0000-0000-000000000003",
+							"name": "Entity Configuration Template",
+							"base_path": "Infrastructure.Data/EntityConfigurations",
+							"enabled": true,
+							"namespace": "Infrastructure.Data.EntityConfigurations"
+						},
+						{
+							"id": "00000000-0000-0000-0000-000000000004",
+							"name": "Repository Template",
+							"base_path": "Infrastructure.Data/Repositories",
+							"base_path_interface": "Infrastructure.Core/SharedKernel",
+							"enabled": true,
+							"namespace": "Infrastructure.Data.Repositories",
+							"namespace_interface": "Infrastructure.Core.SharedKernel"
+						},
+						{
+							"id": "00000000-0000-0000-0000-000000000005",
+							"name": "Services Template",
+							"base_path": "Api/V1/Services",
+							"base_path_interface": "Api/V1/Services",
+							"enabled": true,
+							"namespace": "CodeGenerator.Api.V1.Services",
+							"namespace_interface": "CodeGenerator.Api.V1.Services"
+						}
+					],
+					"version": 1.0
+				}
+			]
+		}
+	],
+	"templates": [
+		{
+			"id": "00000000-0000-0000-0000-000000000001",
+			"language": "c-sharp",
+			"template": "efcore_context",
+			"enabled": true,
+			"version": 1.0
+		},
+		{
+			"id": "00000000-0000-0000-0000-000000000002",
+			"language": "c-sharp",
+			"template": "efcore_entity",
+			"enabled": true,
+			"version": 1.0
+		},
+		{
+			"id": "00000000-0000-0000-0000-000000000003",
+			"language": "c-sharp",
+			"template": "efcore_entity_configuration",
+			"enabled": true,
+			"version": 1.0
+		},
+		{
+			"id": "00000000-0000-0000-0000-000000000004",
+			"language": "c-sharp",
+			"template": "repository",
+			"enabled": true,
+			"version": 1.0
+		},
+		{
+			"id": "00000000-0000-0000-0000-000000000005",
+			"language": "c-sharp",
+			"template": "services",
+			"enabled": true,
+			"version": 1.0
+		}
+	],
+	"tables": [
+	],
+	"drivers": [
+		{
+			"id": "2BC1B0C4-1E41-9146-82CF-599181CE4413",
+			"name": "Entity Framework Core - SqlServer (Default)",
+			"namespaces": [
+				"Microsoft.EntityFrameworkCore",
+				"Microsoft.EntityFrameworkCore.Storage",
+				"Microsoft.EntityFrameworkCore.Metadata.Builders",
+				"System.Configuration"
+			],
+			"parent_folder": "EFCore",
+			"prefix": "SqlServer",
+			"use_schema": true,
+			"create_db": true,
+			"include_column_order": true,
+			"logging_enabled": true,
+			"use_alias": true
+		}
+	]
+}

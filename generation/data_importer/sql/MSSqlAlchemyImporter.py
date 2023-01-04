@@ -20,7 +20,7 @@ class MSSqlAlchemyImporter(BaseSqlAlchemyImporter):
         elif type(data_type) is db.dialects.mssql.base.DATETIME2 or type(data_type) is db.sql.sqltypes.DATETIME:
             return "DateTime"
         elif type(data_type) is db.dialects.mssql.base.REAL:
-            return "real"
+            return "float"
         elif type(data_type) is db.dialects.mssql.base.VARBINARY or type(data_type) is db.sql.sqltypes.BINARY:
             return "byte[]"
         elif type(data_type) is db.dialects.mssql.base.BIT:
