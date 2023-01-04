@@ -8,24 +8,29 @@ import os
 from re import sub
 import stringcase
 
+
 def map_to_output_type(column):
 
-        # https://stackoverflow.com/questions/44193823/get-existing-table-using-sqlalchemy-metadata
-        # db_type = column.RemapDataType if column.RemapDataType else column.DomainDataType
-        result = column.data_type
-        # db_type = 1
+    # https://stackoverflow.com/questions/44193823/get-existing-table-using-sqlalchemy-metadata
+    # db_type = column.RemapDataType if column.RemapDataType else column.DomainDataType
+    result = column.data_type
+    # db_type = 1
 
-        # result = ""
+    # result = ""
 
-        #todo: map types
-        if result == "String":
-            result = "string" 
-        
-        if column.is_required == False and result != "string":
-            result = f"{result}?"
-        print("Column Type", result)
-        print("Column Type", column.data_type)
-        return result
+    # todo: map types
+    if result == "String":
+        result = "string"
+    if result == "Int32":
+        result = "int"
+
+    if column.is_required == False and result != "string":
+        result = f"{result}?"
+    print("Column Type", result)
+    print("Column Type", column.data_type)
+    return result
+
+
 class EFCoreEntityGenerator(BaseGenerator.BaseGenerator):
     def __init__(self, collection, drivers, namingConvention, domain, project_data, template, template_dir):
         self.template = template
@@ -49,7 +54,7 @@ class EFCoreEntityGenerator(BaseGenerator.BaseGenerator):
         j2_enviroment = Environment(loader=FileSystemLoader(
             f"{self.template_dir}/{lookup_template.template}"))
         j2_enviroment.filters["convert_to_case"] = convert_to_case
-        j2_enviroment.filters["map_to_output_type"] = map_to_output_type 
+        j2_enviroment.filters["map_to_output_type"] = map_to_output_type
         return j2_enviroment.from_string(loaded_template)
 
     def generate_entities(self, lookup_template):
@@ -64,9 +69,11 @@ class EFCoreEntityGenerator(BaseGenerator.BaseGenerator):
                     namespace = f"{self.project_data.base_namespace}.{self.template.namespace}"
 
                     # These are the referenced objects
-                    foreign_relationships = [relationship for relationship in table.relationships if relationship.relationship == "ForeignKey"]
-                    # These represent the objects referencing this object 
-                    foreign_relationships_children = [relationship for relationship in table.relationships if relationship.relationship == "ForeignKeyChild"]
+                    foreign_relationships = [
+                        relationship for relationship in table.relationships if relationship.relationship == "ForeignKey"]
+                    # These represent the objects referencing this object
+                    foreign_relationships_children = [
+                        relationship for relationship in table.relationships if relationship.relationship == "ForeignKeyChild"]
 
                     processed_template = j2_template.render(
                         table=table,
