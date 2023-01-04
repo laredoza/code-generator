@@ -7,11 +7,11 @@ namespace {{namespace}}
 		public void Configure(EntityTypeBuilder<{{table.table_name | convert_to_case(domain.namingConvention)}}> builder)
         	{
 			builder.ToTable("{{table.table_name | convert_to_case(domain.namingConvention)}}", "{{table.schema_name | convert_to_case(domain.namingConvention)}}");
-{% include "./partials/_primary_key.j2" %}
-{% include "./partials/_constraints.j2" %}
-{% include "./partials/_indexes.j2" %}
-{% include "./partials/_column_order.j2" %}
-{% include "./partials/_relationships.j2" %}
+{%- include "./partials/_primary_key.j2" %}
+{%- include "./partials/_constraints.j2" %}
+{%- include "./partials/_indexes.j2" %}
+{%- include "./partials/_column_order.j2" %}
+{%- include "./partials/_relationships.j2" %}
 		}
 	}
 }
