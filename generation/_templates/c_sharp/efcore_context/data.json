@@ -15,49 +15,11 @@
 			"output_folder": "Context",
 			"is_default": true,
 			"models": [
+
+				
 				{
 					"schema_name": "dbo",
-					"table_name": "BankAccount",
-					"enabled_for_code_generation": true
-				},
-				{
-					"schema_name": "dbo",
-					"table_name": "Customer",
-					"enabled_for_code_generation": true
-				},
-				{
-					"schema_name": "dbo",
-					"table_name": "Country",
-					"enabled_for_code_generation": true
-				},
-				{
-					"schema_name": "dbo",
-					"table_name": "BankTransfers",
-					"enabled_for_code_generation": true
-				},
-				{
-					"schema_name": "dbo",
-					"table_name": "Book",
-					"enabled_for_code_generation": true
-				},
-				{
-					"schema_name": "dbo",
-					"table_name": "Product",
-					"enabled_for_code_generation": true
-				},
-				{
-					"schema_name": "dbo",
-					"table_name": "Order",
-					"enabled_for_code_generation": true
-				},
-				{
-					"schema_name": "dbo",
-					"table_name": "OrderDetails",
-					"enabled_for_code_generation": true
-				},
-				{
-					"schema_name": "dbo",
-					"table_name": "Software",
+					"table_name": "PriceChangeType",
 					"enabled_for_code_generation": true
 				}
 			]
