@@ -1,1 +1,0 @@
-docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Pass123#" -e "MSSQL_PID=Express" -p 1439:1433 -d --natme=sql -v /home/sql-server/backup:/backup mcr.microsoft.com/mssql/server:lates
